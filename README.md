@@ -1,6 +1,6 @@
 # Préstamos de Vida (Prueba Makers)
 
-Sistema completo para la gestión de solicitudes de préstamos, compuesto por un backend en **C# (.NET 8)** y un frontend en **React 19 + Vite + TypeScript**.
+Sistema para la gestión de solicitudes de préstamos bancarios, compuesto por un backend en **C# (.NET 8)** y un frontend en **React 19 + Vite + TypeScript**. Este proyecto es una implementación parcial de los requerimientos solicitados en la prueba técnica.
 
 ---
 
@@ -23,7 +23,7 @@ Sistema completo para la gestión de solicitudes de préstamos, compuesto por un
 
 ## Descripción
 
-Este proyecto permite a los usuarios solicitar préstamos y a los administradores gestionar dichas solicitudes (aprobar/rechazar). Incluye autenticación, autorización por roles y validaciones tanto en frontend como en backend.
+Este proyecto implementa un sistema básico que permite a los usuarios solicitar préstamos y a los administradores gestionar dichas solicitudes (aprobar/rechazar). El sistema está en desarrollo y actualmente cuenta con una implementación parcial de las funcionalidades requeridas.
 
 ---
 
@@ -39,23 +39,33 @@ Este proyecto permite a los usuarios solicitar préstamos y a los administradore
 
 ```bash
 préstamos-vida/
-├── backend/                  # Código fuente del backend (.NET)
-│   ├── Controllers/          # Controladores de ASP.NET
-│   ├── Models/               # Modelos de datos
-│   ├── Repositories/         # Acceso a datos
-│   ├── Services/             # Lógica de negocio
-│   ├── DTOs/                 # Objetos de transferencia de datos
-│   ├── Migrations/           # Migraciones de base de datos
-│   └── Program.cs            # Punto de entrada
+├── PrestamosDeVida/          # Código fuente del backend (.NET)
+│   ├── .vs/                  # Archivos de Visual Studio
+│   ├── Domain/               # Capa de dominio
+│   ├── Master.Base/          # Clases base y utilidades
+│   ├── PrestamosDeVida/      # Proyecto principal
+│   ├── Shared/               # Componentes compartidos
+│   ├── UseCase/              # Casos de uso de la aplicación
+│   ├── .gitignore            # Exclusiones de Git
+│   └── PrestamosDeVida.sln   # Solución de Visual Studio
 │
-├── frontend/                 # Código fuente del frontend (React + Vite)
-│   ├── src/
-│   │   ├── components/       # Componentes de React
-│   │   ├── pages/            # Páginas principales
-│   │   ├── services/         # Servicios para llamadas a la API
-│   │   ├── App.tsx           # Componente raíz
-│   │   └── main.tsx          # Entrada de Vite
-│   └── index.html            # HTML principal
+├── FrontEnd/                # Código fuente del frontend
+│   └── prestamos-de-vida/    # Proyecto React + Vite + TypeScript
+│       ├── .github/          # Archivos de GitHub
+│       ├── .vscode/          # Configuración de VS Code
+│       ├── node_modules/     # Dependencias de Node.js
+│       ├── public/           # Archivos públicos
+│       ├── src/              # Código fuente
+│       ├── .gitignore        # Exclusiones de Git
+│       ├── eslint.config.js  # Configuración de ESLint
+│       ├── index.html        # HTML principal
+│       ├── package-lock.json # Bloqueo de versiones de dependencias
+│       ├── package.json      # Configuración del proyecto
+│       ├── README.md         # Documentación del frontend
+│       ├── tsconfig.app.json # Configuración de TypeScript para la app
+│       ├── tsconfig.json     # Configuración principal de TypeScript
+│       ├── tsconfig.node.json # Configuración de TypeScript para Node
+│       └── vite.config.ts    # Configuración de Vite
 │
 ├── .gitignore                # Exclusiones de Git
 ├── README.md                 # Documentación
@@ -102,7 +112,7 @@ préstamos-vida/
 1. **Clona el repositorio** si aún no lo hiciste.
 2. **Navega a la carpeta del frontend**:
    ```sh
-   cd frontend
+   cd FrontEnd/prestamos-de-vida
    ```
 3. **Instala las dependencias**:
    ```sh
@@ -124,14 +134,22 @@ préstamos-vida/
 
 ---
 
-## Funcionalidades
+## Funcionalidades Implementadas vs. Requeridas
 
-- Solicitud de préstamos
-- Aprobación y rechazo de solicitudes
-- Registro y autenticación de usuarios
-- Autorización basada en roles
-- Validaciones en tiempo real
-- Documentación de la API con Swagger
+### Implementado:
+- Estructura básica del backend con arquitectura por capas
+- Endpoints básicos para préstamos (crear, actualizar, obtener)
+- Estructura básica del frontend con React y TypeScript
+
+### Pendiente de implementación:
+- Autenticación y autorización con JWT
+- Registro de usuarios y gestión de roles
+- Validaciones completas en frontend y backend
+- Caché para consultas repetitivas
+- Manejo de transacciones en aprobaciones de préstamos
+- Tests unitarios
+- Manejo global de errores
+- Integración real entre frontend y backend
 
 ---
 
@@ -183,22 +201,27 @@ préstamos-vida/
 ## Estado de Implementación vs. Requerimientos
 
 ### Backend
-- [x] API RESTful para gestión de préstamos y usuarios.
-- [x] Documentación Swagger básica.
-- [x] Arquitectura por capas y patrón repositorio.
-- [ ] Autenticación y autorización JWT.
-- [ ] Manejo global de errores.
-- [ ] Pruebas unitarias y de integración.
-- [ ] Documentar todos los endpoints en Swagger.
-- [ ] Paginación y optimización de consultas.
+- [x] Estructura básica con arquitectura por capas
+- [x] Patrón repositorio implementado parcialmente
+- [x] Endpoints básicos para préstamos (crear, actualizar, obtener)
+- [ ] CRUD completo para usuarios
+- [ ] Autenticación y autorización JWT
+- [ ] Manejo global de errores
+- [ ] Implementación de caché para consultas repetitivas
+- [ ] Implementación de transacciones en aprobaciones
+- [ ] Pruebas unitarias
+- [ ] Documentación Swagger completa
+- [ ] Paginación y optimización de consultas
 
 ### Frontend
-- [x] Estructura de componentes, páginas y servicios.
-- [ ] Manejo de tokens y sesiones (autenticación).
-- [ ] Validaciones avanzadas y mensajes de error.
-- [ ] Mejoras de UI/UX.
-- [ ] Tests unitarios.
-- [ ] Internacionalización (i18n).
+- [x] Estructura básica del proyecto React con TypeScript
+- [ ] Implementación de las tres interfaces requeridas (login, usuario, administrador)
+- [ ] Autenticación y autorización con JWT
+- [ ] Consumo real de la API del backend
+- [ ] Validaciones en formularios
+- [ ] Gestión segura del estado de la aplicación
+- [ ] Tests unitarios
+- [ ] Mejoras de UI/UX según los mockups proporcionados
 
 ### General
 - [ ] Sistema de notificaciones (correo o in-app).
@@ -217,40 +240,33 @@ Este proyecto está bajo la Licencia MIT. Consulte el archivo LICENSE para más 
 ## Checklist Técnico Detallado y Observaciones
 
 ### Backend
-- [x] Arquitectura por capas (Controllers, Services, Repositories, DTOs, Domain)
-- [x] Patrón Repositorio implementado
-- [x] Uso de DTOs para entrada/salida de datos
-- [x] Inyección de dependencias
-- [x] Documentación Swagger básica
+- [x] Arquitectura por capas (Domain, UseCase, PrestamosDeVida)
+- [x] Patrón Repositorio implementado parcialmente
+- [x] Uso de DTOs para entrada/salida de datos en los casos implementados
+- [x] Inyección de dependencias básica
+- [ ] **CRUD completo para usuarios** (no implementado)
 - [ ] **Autenticación y autorización JWT** (no implementado)
-- [ ] **Endpoints de usuarios** (no se observa UsersController ni endpoints de registro/login)
-- [ ] **Validaciones exhaustivas** (hay validaciones en los UseCase, pero falta validación global y manejo de errores centralizado)
-- [ ] **Manejo global de errores** (no hay middleware de manejo de excepciones)
-- [ ] **Pruebas unitarias y de integración** (no hay tests)
-- [ ] **Paginación y filtros en endpoints** (no implementado en LoansRepository/GetLoans)
-- [ ] **Optimización de consultas** (no se observa uso de proyecciones, paginación, ni índices)
-- [ ] **Historial de solicitudes por usuario** (no implementado)
-- [ ] **Sistema de notificaciones (correo o in-app)** (no implementado)
-- [ ] **Internacionalización de mensajes de error** (no implementado)
-- [ ] **Despliegue automatizado/documentado** (no hay scripts ni instrucciones avanzadas)
-- [ ] **Pruebas de carga y rendimiento** (no implementado)
-- [ ] **Roles y autorización por roles** (no implementado en endpoints)
-- [ ] **Documentar todos los endpoints en Swagger** (solo básico)
+- [ ] **Endpoints de usuarios** (carpeta existe pero no hay implementación)
+- [ ] **Validaciones exhaustivas** (implementación parcial en UseCase)
+- [ ] **Manejo global de errores** (no implementado)
+- [ ] **Implementación de caché** (no implementado)
+- [ ] **Transacciones en aprobaciones** (no implementado)
+- [ ] **Pruebas unitarias** (no implementado)
+- [ ] **Paginación y filtros en endpoints** (no implementado)
+- [ ] **Documentación Swagger** (no implementado)
 
 ### Frontend
-- [x] Estructura modular (componentes, páginas, servicios)
-- [x] Uso de React 19 + Vite + TypeScript
-- [ ] **Consumo real de API** (actualmente todo es mock, no hay integración real con backend)
+- [x] Estructura básica con React 19 + Vite + TypeScript
+- [ ] **Implementación de las tres interfaces requeridas** (no implementado):
+  - [ ] Pantalla de login
+  - [ ] Pantalla de usuario para solicitar préstamos y ver estado
+  - [ ] Pantalla de administrador para aprobar/rechazar préstamos
+- [ ] **Consumo real de API** (no implementado)
 - [ ] **Autenticación y manejo de tokens/sesiones** (no implementado)
 - [ ] **Gestión de roles y rutas protegidas** (no implementado)
-- [ ] **Validaciones avanzadas y mensajes de error amigables** (solo validación básica en el formulario)
-- [ ] **Internacionalización (i18n)** (no implementado)
-- [ ] **Notificaciones (correo o in-app)** (no implementado)
-- [ ] **Historial de solicitudes por usuario** (no implementado)
-- [ ] **Mejoras de UI/UX** (diseño básico, sin feedback avanzado)
-- [ ] **Tests unitarios y de integración** (no implementado)
-- [ ] **Pruebas de carga y rendimiento** (no implementado)
-- [ ] **Despliegue automatizado/documentado** (no hay scripts ni instrucciones avanzadas)
+- [ ] **Validaciones en formularios** (no implementado)
+- [ ] **Gestión segura del estado** (no implementado)
+- [ ] **Tests unitarios** (no implementado)
 
 ### General
 - [ ] **Documentación técnica y de despliegue** (falta guía de despliegue, variables de entorno, etc.)
@@ -259,10 +275,19 @@ Este proyecto está bajo la Licencia MIT. Consulte el archivo LICENSE para más 
 
 ---
 
-**Observaciones:**
-- El backend carece de endpoints de autenticación y registro de usuarios, así como de middleware de manejo global de errores y paginación.
-- El frontend no consume la API real, no implementa autenticación, ni roles, ni internacionalización.
-- No hay pruebas automatizadas ni scripts/documentación de despliegue.
-- Faltan funcionalidades clave como notificaciones, historial de solicitudes, y pruebas de carga.
+**Observaciones finales:**
+
+- **Backend**: Se ha implementado una estructura básica con arquitectura por capas, pero faltan componentes clave como autenticación JWT, manejo de usuarios, caché, transacciones, y pruebas unitarias requeridas en la especificación.
+
+- **Frontend**: Solo se ha configurado la estructura básica del proyecto React, pero no se han implementado las tres interfaces requeridas (login, usuario, administrador) según los mockups proporcionados, ni la integración con el backend.
+
+- **Integración**: No hay evidencia de integración entre el frontend y el backend.
+
+**Próximos pasos prioritarios:**
+
+1. Implementar las tres interfaces de usuario según los mockups
+2. Completar la implementación de endpoints para usuarios y préstamos
+3. Implementar autenticación y autorización JWT
+4. Integrar frontend y backend
 
 ---
