@@ -1,4 +1,4 @@
-# Préstamos de Vida
+# Préstamos de Vida (Prueba Makers)
 
 Sistema completo para la gestión de solicitudes de préstamos, compuesto por un backend en **C# (.NET 8)** y un frontend en **React 19 + Vite + TypeScript**.
 
