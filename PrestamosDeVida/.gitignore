@@ -1,0 +1,74 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Dotnet CLI
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Microsoft Azure Web App publish settings
+*.PublishSettings
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# IIS Express
+.vs/
+*.vspscc
+*.vssscc
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# User secrets
+secrets.json
+
+# Local configuration
+appsettings.Development.json
+appsettings.Local.json
+
+# Logs
+*.log
+
+# Others
+TestResults/
+*.dbmdl
+*.pdb
+*.cache
+*.bak
+*.swp
+*.tmp
