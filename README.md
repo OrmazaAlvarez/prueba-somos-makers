@@ -265,7 +265,4 @@ Este proyecto está bajo la Licencia MIT. Consulte el archivo LICENSE para más 
 - No hay pruebas automatizadas ni scripts/documentación de despliegue.
 - Faltan funcionalidades clave como notificaciones, historial de solicitudes, y pruebas de carga.
 
-**Recomendación:**
-Utiliza este checklist para priorizar el desarrollo pendiente y dejar explícito el estado técnico del proyecto frente a los requerimientos del PDF.
-
 ---
